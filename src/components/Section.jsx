@@ -1,12 +1,16 @@
+import './Section.css';
+
 function Section({ title, icon, children }) {
   return (
-    <section>
-      <header>
-        <h2>{title}</h2>
-        <img alt={title} src={icon} />
+    <section className="Section">
+      <header className="Section__header">
+        <h2 className="Section__title">{title}</h2>
+        <img className="Section__icon" alt={title} src={icon} />
       </header>
 
-      {children}
+      <article className="Section__content">
+        {children}
+      </article>
     </section>
   );
 }
