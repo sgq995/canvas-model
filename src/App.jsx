@@ -1,8 +1,15 @@
 import Section from './components/Section';
+import Post from './components/Post';
 
 import './App.css';
 
 function App() {
+  const clients = [
+    'Estudiantes',
+    'Empresas',
+    'Emprendedores',
+  ];
+
   return (
     <div className="App">
       <div className="App__upper App__row">
@@ -20,7 +27,13 @@ function App() {
           <Section title="Canales" />
         </div>
 
-        <Section title="Segmento de Clientes" />
+        <Section title="Segmento de Clientes">
+          {clients.map(client => <Post>{client}</Post>)}
+
+          <Post>
+            +
+          </Post>
+        </Section>
       </div>
 
       <div className="App__bottom App__row">
