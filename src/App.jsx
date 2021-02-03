@@ -2,6 +2,7 @@ import Section from './components/Section';
 import Post from './components/Post';
 
 import './App.css';
+import NewPost from './components/NewPost';
 
 function App() {
   const clients = [
@@ -30,9 +31,7 @@ function App() {
         <Section title="Segmento de Clientes">
           {clients.map(client => <Post>{client}</Post>)}
 
-          <Post>
-            +
-          </Post>
+          <NewPost />
         </Section>
       </div>
 

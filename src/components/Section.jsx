@@ -1,6 +1,13 @@
+import { useState } from 'react';
+
+import NewPost from './NewPost';
+import Post from './Post';
+
 import './Section.css';
 
-function Section({ title, icon, children }) {
+function Section({ title, icon }) {
+  const [items, setItems] = useState([]);
+
   return (
     <section className="Section">
       <header className="Section__header">
@@ -9,7 +16,13 @@ function Section({ title, icon, children }) {
       </header>
 
       <article className="Section__content">
-        {children}
+        {items.map(item =>
+          <Post>
+            {item}
+          </Post>
+        )}
+
+        <NewPost onSubmit={(item) => setItems(items => [...items, item])} />
       </article>
     </section>
   );
