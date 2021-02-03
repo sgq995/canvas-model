@@ -7,11 +7,13 @@ function Post({ children }) {
 
   return (
     <article className={`Post ${editable && 'Post--editable'}`} onClick={() => setEditable(true)}>
-      {/* <button className="Post__button">M</button>
-      <button className="Post__button">X</button> */}
-
       <div className="Post__content">
         {children}
+      </div>
+
+      <div className="Post__buttons">
+        <button className="Post__button Post__button--info material-icons">mode</button>
+        <button className="Post__button Post__button--danger material-icons">delete</button>
       </div>
     </article>
   )
