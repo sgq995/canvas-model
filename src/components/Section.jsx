@@ -23,14 +23,28 @@ class Section extends Component {
     });
   }
 
-  handleEditItem = (id, content) => {
-    this.setState(({ lastId, items }) => {
+  handleItemEdit = (id, content) => {
+    this.setState(({ items }) => {
       const item = items.find(item => item.id === id);
       item.content = content;
 
       return {
-        lastId,
         items,
+      };
+    });
+  }
+
+  handleItemDelete = (id) => {
+    this.setState(({ items }) => {
+      let newItems = items;
+
+      const idx = newItems.findIndex(item => item.id === id);
+      if (idx > -1) {
+        newItems.splice(idx, 1);
+      }
+
+      return {
+        items: newItems
       };
     });
   }
@@ -48,7 +62,12 @@ class Section extends Component {
 
         <article className="Section__content">
           {items.map(({ id, content }) =>
-            <Post key={id} content={content} onEdit={content => this.handleEditItem(id, content)} />
+            <Post
+              key={id}
+              content={content}
+              onEdit={content => this.handleItemEdit(id, content)}
+              onDelete={() => this.handleItemDelete(id)}
+            />
           )}
 
           <NewPost onSubmit={this.handleNewItem} />

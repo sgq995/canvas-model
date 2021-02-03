@@ -37,6 +37,9 @@ class Post extends Component {
 
   handleDelete = (event) => {
     event.stopPropagation();
+
+    const onDelete = this.props.onDelete ?? (() => { });
+    onDelete();
   }
 
   render() {
