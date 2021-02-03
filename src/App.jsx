@@ -1,6 +1,4 @@
 import Section from './components/Section';
-import Post from './components/Post';
-import NewPost from './components/NewPost';
 
 import './App.css';
 

@@ -16,10 +16,8 @@ function Section({ title, icon }) {
       </header>
 
       <article className="Section__content">
-        {items.map(item =>
-          <Post>
-            {item}
-          </Post>
+        {items.map(content =>
+          <Post content={content} />
         )}
 
         <NewPost onSubmit={(item) => setItems(items => [...items, item])} />

@@ -21,7 +21,7 @@
 }
 
 .Post--editable {
-  cursor: unset;
+  padding: 0;
 }
 
 .Post--editable:hover {

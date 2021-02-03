@@ -1,22 +1,66 @@
-import { useState } from 'react';
+import { Component } from 'react';
+import Entry from './Entry';
 
 import './Post.css';
 
-function Post({ children }) {
-  const [editable, setEditable] = useState(false);
+class Post extends Component {
+  state = {
+    editable: false,
+  }
 
-  return (
-    <article className={`Post ${editable && 'Post--editable'}`} onClick={() => setEditable(true)}>
-      <div className="Post__content">
-        {children}
-      </div>
+  handleCheck = (value) => {
+    if (value.trim().length === 0) {
+      return false;
+    }
 
-      <div className="Post__buttons">
-        <button className="Post__button Post__button--info material-icons">mode</button>
-        <button className="Post__button Post__button--danger material-icons">delete</button>
-      </div>
-    </article>
-  )
+    return true;
+  }
+
+  handleSubmit = (value) => {
+    this.setState({
+      editable: false,
+    });
+
+    const onEdit = this.props.onEdit ?? (() => { });
+    onEdit(value);
+  }
+
+  handleEdit = (event) => {
+    if (this.state.editable) {
+      return;
+    }
+
+    this.setState({
+      editable: true
+    });
+  }
+
+  handleDelete = (event) => {
+    event.stopPropagation();
+  }
+
+  render() {
+    const { content } = this.props;
+    const { editable } = this.state;
+
+    return (
+      <article className={`Post ${editable && 'Post--editable'}`} onClick={this.handleEdit}>
+        {editable
+          ? <Entry initialValue={content} onCheck={this.handleCheck} onSubmit={this.handleSubmit} />
+          : <>
+            <div className="Post__content">
+              {content}
+            </div>
+
+            <div className="Post__buttons">
+              <button className="Post__button Post__button--info material-icons" onClick={this.handleEdit}>mode</button>
+              <button className="Post__button Post__button--danger material-icons" onClick={this.handleDelete}>delete</button>
+            </div>
+          </>
+        }
+      </article>
+    );
+  }
 }
 
 export default Post;

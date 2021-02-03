@@ -1,0 +1,47 @@
+.Entry__form {
+  width: inherit;
+
+  flex-grow: 1;
+}
+
+.Entry__field {
+  display: flex;
+
+  padding: 8px;
+
+  border: 1px solid #e3e3e3;
+
+  cursor: text;
+}
+
+.Entry__field--error {
+  border-color: #e30000;
+}
+
+.Entry__input {
+  box-sizing: border-box;
+
+  flex-grow: 1;
+
+  background-color: transparent;
+  border: none;
+}
+
+.Entry__input:focus {
+  border: none;
+  outline: none;
+}
+
+.Entry__submit {
+  box-sizing: border-box;
+
+  background-color: transparent;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+}
+
+.Entry__submit:hover {
+  background-color: #00e300;
+  color: #fff;
+}
