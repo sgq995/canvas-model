@@ -1,0 +1,80 @@
+.NewPost {
+  box-sizing: border-box;
+
+  min-height: 24px;
+
+  margin: 8px 0;
+
+  display: flex;
+
+  border: 1px solid transparent;
+}
+
+.NewPost__form {
+  width: inherit;
+
+  flex-grow: 1;
+}
+
+.NewPost__field {
+  display: flex;
+
+  padding: 8px;
+
+  border: 1px solid #e3e3e3;
+
+  cursor: text;
+}
+
+.NewPost__field--error {
+  border-color: #e30000;
+}
+
+.NewPost__input {
+  box-sizing: border-box;
+
+  flex-grow: 1;
+
+  border: none;
+}
+
+.NewPost__input:focus {
+  border: none;
+  outline: none;
+}
+
+.NewPost__submit {
+  box-sizing: border-box;
+
+  background-color: transparent;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+}
+
+.NewPost__submit:hover {
+  background-color: #00e300;
+  color: #fff;
+}
+
+.NewPost__button {
+  box-sizing: border-box;
+  
+  width: 100%;
+
+  padding: 8px;
+
+  background-color: transparent;
+  color: #333;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+}
+
+.NewPost__button:hover {
+  background-color: #fafafa;
+  border-color: #e3e3e3;
+  color: #000;
+}
+
+
